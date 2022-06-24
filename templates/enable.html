@@ -1,0 +1,8 @@
+{% extends 'first.html'%}
+{% block content %}
+<form action="enable" method="post">
+    {% csrf_token %}
+    <input type="text" name="usern" placeholder="enter username to enable">
+    <input type="submit">
+</form>
+{% endblock %}

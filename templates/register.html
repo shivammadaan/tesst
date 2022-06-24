@@ -1,0 +1,20 @@
+{% extends 'first.html' %}
+{% block content %}
+<div style="padding-top: 100px">
+    <form align="center" action="register" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter your username" name="username"><br><br>
+        <input type="text" placeholder="Enter your firstname" name="firstname"><br><br>
+        <input type="text" placeholder="Enter your lastname" name="lastname"><br><br>
+        <input type="email" placeholder="Enter your mail id" name="mail"><br><br>
+        <input type="password" placeholder="Enter password" name="pss1"><br><br>
+        <input type="password" placeholder="Confirm your password" name="pss2"><br><br>
+        <input type="submit"><br>
+    </form>
+    <div align="center">
+        {% for i in messages %}
+        <h1 style="color: red;">{{i}}</h1>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

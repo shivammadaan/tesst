@@ -1,0 +1,16 @@
+{% extends 'first.html' %}
+{% block content %}
+<div style="padding-top: 100px">
+    <form align="center" action="login" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter your username" name="username"><br><br>
+        <input type="password" placeholder="Enter password" name="pss1"><br><br>
+        <input type="submit"><br>
+    </form>
+    <div align="center">
+        {% for i in messages %}
+        <h1 style="color: red;">{{i}}</h1>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

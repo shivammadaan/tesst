@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'stt.css' %}">
+    </head>
+    <body style="background:#e0aaaa">
+        <header style="height: 150px;">
+        <div id="n"><h1 id="hn">Shivam Madaan</h1></div>
+        </header>
+        <nav style="background-color: #dca045; margin-top: 5px;">
+            <button class="navb">HOME</button>
+            <button class="navb e">Education</button>
+            {% if user.is_authenticated%}
+            <button class="navb">Hello {{user.first_name}}</button>
+            <button class="navb"><a href="logout">LOGOUT</a></button>
+            {% else %}
+            <button class="navb"><a href="register">SIGN-UP</a></button>
+            <button class="navb"><a href="login">LOGIN</a></button>
+            {% endif %}
+            <button class="navb">HOME</button>
+            <button class="navb">Projects</button>
+            <button class="navb">Contact</button>
+        </nav>
+        {% if user.is_authenticated%}
+            {% if user.is_superuser %}
+            <h2 align="center">hello admin {{user.first_name}}</h2>
+            <button><a href="disable">Disable a user</a></button>
+            <button><a href="enable">enable a user</a></button>
+            {% else %}
+            <h2 align="center">hello user</h2>
+            {% endif%}
+        {% endif%}
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
