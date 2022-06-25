@@ -59,7 +59,7 @@ def login(request):
 def sendmail(email,token):
     subject='Your Account verification'
     mes=f'Hey follow the link below to verify your account http://127.0.0.1:8000/{token}'
-    send_mail(subject,mes,'shivam.madaan@outlook.com',[email])
+    send_mail(subject,mes,'email@outlook.com',[email])
 
 def verify(request, auth_token):
     profile_obj = Profile.objects.filter(auth_token = auth_token).first()
